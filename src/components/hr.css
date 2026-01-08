@@ -1,0 +1,17 @@
+html{
+  scroll-behavior: smooth;
+}
+.gradient-line1 {
+  border: 0;
+  height: 3px; /* Adjust height for line thickness */
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(75, 75, 75, 0.75), rgba(0, 0, 0, 0));
+  /* Fallback for older browsers */
+  background-image: -webkit-linear-gradient(left, rgba(0, 0, 0, 0), rgba(75, 75, 75, 0.75), rgba(0, 0, 0, 0));
+}
+.gradient-line2 {
+  border: 0;
+  height: 2px; /* Adjust height for line thickness */
+  background-image: linear-gradient(to right, rgba(37, 37, 37, 0), rgba(44, 16, 137, 0.75), rgba(37, 37, 37, 0));
+  /* Fallback for older browsers */
+  background-image: -webkit-linear-gradient(left,rgba(37, 37, 37, 0), rgba(86, 36, 161, 0.75), rgba(37, 37, 37, 0));
+}
