@@ -28,7 +28,7 @@ const Projects = () => {
          bg-slate-700 shadow-[0_0_5px_#f4bde8]
          rounded-[10px] hover:bg-[position:right_center]"
             >
-              <a href="https://github.com/Abhimanyu157236/whisperInk">{"</>"} code</a>
+              <a href="https://github.com/Abhimanyu157236/HustleBoard">{"</>"} code</a>
             </button>
           </div>
         </div>
