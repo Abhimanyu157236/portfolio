@@ -10,17 +10,17 @@ const Projects = () => {
       <div className="w-full flex flex-wrap gap-8 justify-center py-5">
         <div className="w-[90%] md:w-[30%] p-2 shadow-[0_0_5px_#6eee] rounded-md">
           <img
-            src="/projects/whisperInk.png"
-            alt="whisperInk"
+            src="/projects/hustleboard.png"
+            alt="hustleboard"
             className="rounded-md"
           />
-           <p className="text-md font-bold text-[#a9effa] mt-4 mb-2 px-2"> whisperInk - Blog Website</p>
-            <p className="px-2 text-[#cbd5e1] text-xs">Tailwind CSS and React.js</p>
+           <p className="text-md font-bold text-[#a9effa] mt-4 mb-2 px-2"> HustleBoard - Task Manager </p>
+            <p className="px-2 text-[#cbd5e1] text-xs">Tailwind CSS, Chart.Js and React.js</p>
           <div className="w-full flex flex-wrap justify-center gap-2 my-3">
             <button className="text-white py-2 w-[45%]  text-center rounded-md transition-all duration-500 bg-[linear-gradient(to_right,#1A2980_0%,#26D0CE_51%,#1A2980_100%)] bg-[length:200%_auto] hover:bg-[position:right_center] "
         
             >
-                <a href="https://whisper-ink.vercel.app/"> ▶️ Live Demo</a>
+                <a href="https://hustle-board.vercel.app/"> ▶️ Live Demo</a>
                
             </button>
             <button
