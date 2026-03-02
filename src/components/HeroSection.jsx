@@ -35,7 +35,7 @@ const HeroSection = () => {
             >
               View Projects
             </button></a>
-           <a href="/Resume.pdf" download> <button  className="text-white py-2 px-4 md:px-8 text-center  rounded-md shadow-[0_0_5px_#eee]"
+           <a href="RESUME .pdf" download> <button  className="text-white py-2 px-4 md:px-8 text-center  rounded-md shadow-[0_0_5px_#eee]"
             >Download Resume</button></a>
           </div>
         </div>
