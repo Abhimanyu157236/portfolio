@@ -8,7 +8,7 @@ import Projects from './components/Projects';
 
 const App = () => {
   return (
-    <div className='w-full h-max bg-[#101729] py-10 md:py-16 flex flex-col items-center'>
+    <div className='w-full h-max bg-gradient-to-b from-[#091228] via-[#001b32] to-[#002648] py-10 md:py-16 flex flex-col items-center'>
      <HeroSection />
      <AboutMe />
      <MySkills />

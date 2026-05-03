@@ -1,50 +1,60 @@
 import React from 'react';
 import './hr.css'
-import {CircleDot} from 'lucide-react'
+import { CircleDot } from 'lucide-react'
+import Frontend from './Frontend';
+import Backend from './Backend';
+import { motion } from 'motion/react'
 
 const MySkills = () => {
   return (
-    <div className='w-[85%] my-4'>
-        <hr className='gradient-line2'/>
-     <div className='text-2xl md:text-3xl font-bold py-3 border-b border-slate-800'>
-      <span className=" font-bold text-[#cbd5e1]">My</span>
-      <span className=" font-bold text-[#38bdf8]"> Skills</span> 
-     </div>
-     <div className='w-full flex flex-wrap gap-2 py-4'>
-      <div className='w-full md:w-[48%] px-4'>
-        <span className='flex items-center gap-2'>
+    <div className='w-[90%] md:w-[80%] my-4'>
+      <hr className='gradient-line2' />
+
+      {/* Heading — fade in from left */}
+      <motion.div
+        className='text-2xl md:text-3xl font-bold py-3 border-b border-slate-800'
+        initial={{ opacity: 0, x: -30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: false }}
+        transition={{ duration: 0.5, ease: 'easeOut' }}
+      >
+        <span className="font-bold text-[#cbd5e1]">My</span>
+        <span className="font-bold text-[#38bdf8]"> Skills</span>
+      </motion.div>
+
+      <div className='w-full flex flex-wrap gap-2 py-4'>
+
+        {/* Frontend card — fade in from left */}
+        <motion.div
+          className='w-full md:w-[48%] px-4'
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.6, delay: 0.1, ease: 'easeOut' }}
+        >
+          <span className='flex items-center gap-2'>
             <CircleDot color="#38bdf8" size={15} strokeWidth={1.75} />
-            <p className=" font-bold text-[#cbd5e1]">Frontend</p>
-             </span>
-             <div className='w-full flex flex-wrap gap-7 md:gap-14 border border-blue-900 rounded-lg py-8 px-5 my-5 bg-[#141d33]'>
-              <div className='flex gap-1 items-center'> 
-              <img src="/skills/icons8-html-5-48.png" alt="html" className='w-6 md:w-8' />
-              <p className='text-[#cbd5e1]'>HTML</p>
-              </div>
-              
-              <div className='flex gap-1 items-center'> 
-              <img src="/skills/icons8-css-logo-48.png" alt="css" className='w-6 md:w-8' />
-              <p className='text-[#cbd5e1]'>CSS</p>
-              </div>
+            <p className="font-bold text-[#cbd5e1]">Frontend</p>
+          </span>
+          <Frontend />
+        </motion.div>
 
-               <div className='flex gap-1 items-center'> 
-              <img src="/skills/icons8-tailwindcss-48.png" alt="tailwind" className='w-6 md:w-8' />
-              <p className='text-[#cbd5e1]'>Tailwind CSS</p>
-              </div>
+        {/* Backend card — fade in from right */}
+        <motion.div
+          className='w-full md:w-[49%] px-4'
+          initial={{ opacity: 0, x: 40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+        >
+          <span className='flex items-center gap-2'>
+            <CircleDot color="#38bdf8" size={15} strokeWidth={1.75} />
+            <p className="font-bold text-[#cbd5e1]">Backend</p>
+          </span>
+          <Backend />
+        </motion.div>
 
-              <div className='flex gap-1 items-center'> 
-              <img src="/skills/icons8-javascript-48.png" alt="javascript" className='w-6 md:w-8' />
-              <p className='text-[#cbd5e1]'>Javascript</p>
-              </div>
-
-              <div className='flex gap-1 items-center'> 
-              <img src="/skills/icons8-react-100.png" alt="react" className='w-6 md:w-8' />
-              <p className='text-[#cbd5e1]'>React.js</p>
-              </div>
-             </div>
-        
       </div>
-     </div>
     </div>
   );
 }

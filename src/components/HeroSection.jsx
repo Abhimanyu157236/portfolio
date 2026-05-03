@@ -1,72 +1,144 @@
-import React from "react";
-import "./hr.css";
+import { motion, AnimatePresence } from "motion/react";
+import { useState, useEffect } from "react";
+
+const roles = ["Fullstack Developer", "React Dev", "MERN Dev", "UI Builder"];
+
+const TypeWriter = () => {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setIndex((prev) => (prev + 1) % roles.length);
+    }, 2000);
+    return () => clearInterval(timer);
+  }, []);
+
+  return (
+    <AnimatePresence mode="wait">
+      <motion.span
+        key={index}
+        initial={{ opacity: 0, y: 10 }}
+        animate={{ opacity: 1, y: 0 }}
+        exit={{ opacity: 0, y: -10 }}
+        transition={{ duration: 0.4, ease: "easeOut" }}
+        className="text-cyan-400"
+      >
+        {roles[index]}
+      </motion.span>
+    </AnimatePresence>
+  );
+};
 
 const HeroSection = () => {
-  
   return (
-    <div className=" md:flex w-[85%]">
-      <div className="w-full md:w-[60%] pt-6 md:pt-28">
-        <span className=" mx-auto ">
-          <h1 className=" text-3xl text-center md:text-start md:text-7xl font-bold text-[#f8fafc]">
-            Frontend Developer
-          </h1>
-          <div className="my-2 text-xl text-center md:text-start md:text-3xl">
-            <span className=" font-bold text-[#cbd5e1]">who builds</span>
-            <span className=" font-bold text-[#38bdf8]"> clean</span>
-            <span className=" font-bold text-[#cbd5e1]">, fast & mordern</span>
-            <span className=" font-bold text-purple-600">
-              {" "}
-              web experiences.
-            </span>
-          </div>
-        </span>
-        {
-        //visible on laptop, tablet
-        }
-        <div className="my-10 hidden md:block">
-          <hr className="gradient-line1" />
-          <p className="py-5 px-3 text-[#cbd5e1] text-sm md:text-lg">
-            I am specialize in React, Javascript and mordern UI designs. <br />I
-            love turning ideas into interactive products.
-          </p>
-          <div className="flex gap-1 md:gap-5">
-           <a href="#projects"> <button
-              className="text-white py-2 px-4 md:px-8 text-center rounded-md transition-all duration-500 bg-[linear-gradient(to_right,#1A2980_0%,#26D0CE_51%,#1A2980_100%)] bg-[length:200%_auto] hover:bg-[position:right_center]"
+    <section className="flex overflow-hidden w-[90%] md:w-[80%] ">
+      <div className=" mx-auto w-full flex flex-col md:flex-row items-center justify-between gap-12 py-20">
+        
+        {/* LEFT — Text Content */}
+        <div className="flex-1">
+          
+          {/* Main Heading — Typewriter */}
+          <motion.h1
+            className="text-5xl md:text-6xl font-extrabold text-white leading-tight mb-4"
+            initial={{ opacity: 0, x: -60 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, ease: "easeOut" }}
+          >
+            <TypeWriter />
+          </motion.h1>
+
+          {/* Subheading */}
+          <motion.p
+            className="text-xl md:text-2xl text-gray-300 mb-6"
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+          >
+            who builds{" "}
+            <span className="text-cyan-400 font-semibold">real-world</span>{" "}
+            web apps with{" "}
+            <span className="text-purple-400 font-semibold">MERN</span> stack
+          </motion.p>
+
+          {/* Divider */}
+          <motion.div
+            className="w-32 h-0.5 bg-gradient-to-r from-cyan-400 to-purple-500 mb-6"
+            initial={{ scaleX: 0 }}
+            animate={{ scaleX: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            style={{ originX: 0 }}
+          />
+
+          {/* Bio */}
+          <motion.p
+            className="text-gray-400 text-base leading-relaxed mb-8 max-w-lg"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+          >
+            I am specialize in React, Javascript and modern UI designs - and
+            now building fullstack apps with Node.js & MongoDB. I love turning
+            ideas into real, working products.
+          </motion.p>
+
+          {/* Buttons */}
+          <div className="flex gap-4 flex-wrap">
+            <motion.a
+              href="#projects"
+              className="px-6 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 text-white font-semibold rounded-lg cursor-pointer"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.7 }}
+              whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(56, 189, 248, 0.5)" }}
+              whileTap={{ scale: 0.97 }}
             >
               View Projects
-            </button></a>
-           <a href="RESUME .pdf" download> <button  className="text-white py-2 px-4 md:px-8 text-center  rounded-md shadow-[0_0_5px_#eee]"
-            >Download Resume</button></a>
-          </div>
-        </div>
-      </div>
-      <div className="w-full md:w-[40%] pt-6 flex justify-center">
-        <img
-          src="/hero_img.png"
-          alt="hero"
-          className="w-[70%] md:w-[75%] m-auto rounded-full shadow-2xl shadow-gray-500"
-        />
-      </div>
-      {
-        //visible only on mobile
-        }
-        <div className="my-10 md:hidden">
-          <hr className="gradient-line1" />
-          <p className="py-5 px-3 text-[#cbd5e1] text-sm md:text-lg">
-            I am specialize in React, Javascript and mordern UI designs. <br />I
-            love turning ideas into interactive products.
-          </p>
-          <div className="flex gap-1 md:gap-5">
-            <a href="#projects"> <button
-              className="text-white py-2 px-4 md:px-8 text-center rounded-md transition-all duration-500 bg-[linear-gradient(to_right,#1A2980_0%,#26D0CE_51%,#1A2980_100%)] bg-[length:200%_auto] hover:bg-[position:right_center]"
+            </motion.a>
+
+            <motion.a
+              href="/Resume (14).pdf"
+              download
+              className="px-6 py-3 border border-gray-500 text-white font-semibold rounded-lg cursor-pointer"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.85 }}
+              whileHover={{ scale: 1.05, borderColor: "#a855f7", boxShadow: "0 0 20px rgba(168, 85, 247, 0.3)" }}
+              whileTap={{ scale: 0.97 }}
             >
-              View Projects
-            </button></a>
-            <a href="/Resume.pdf" download> <button  className="text-white py-2 px-4 md:px-8 text-center  rounded-md shadow-[0_0_5px_#eee]"
-            >Download Resume</button></a>
+              Download Resume
+            </motion.a>
           </div>
         </div>
-    </div>
+
+        {/* RIGHT — Profile Photo */}
+        <motion.div
+          className="flex-shrink-0 relative"
+          initial={{ opacity: 0, x: 60, scale: 0.85 }}
+          animate={{ opacity: 1, x: 0, scale: 1 }}
+          transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+        >
+          {/* Glow ring */}
+          <motion.div
+            className="w-full absolute inset-0 rounded-full"
+            style={{
+              background: "radial-gradient(circle, rgba(168,85,247,0.3) 0%, transparent 70%)",
+              filter: "blur(20px)",
+            }}
+            animate={{ scale: [1, 1.08, 1], opacity: [0.6, 1, 0.6] }}
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+          />
+
+          {/* Photo */}
+          <div className="relative w-72 h-72 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-purple-500/40">
+            <img
+              src="/hero_img.png"
+              alt="Abhimanyu"
+              className="w-full h-full object-cover"
+            />
+          </div>
+        </motion.div>
+      </div>
+    </section>
   );
 };
 
